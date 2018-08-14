@@ -23,7 +23,7 @@ const server = http.createServer( ( req, res ) => {
         } else if ( req.url.toLowerCase() === "/scores" ) {
             res.statusCode = 200
             res.setHeader( 'Content-Type', 'text/plain' )
-            const responseBody = state.scores.sort( (a,b) => a.score > b.score  )
+            const responseBody = JSON.stringify(state.scores.sort( (a,b) => a.score > b.score  ))
             sendJson( req,res,responseBody )
             //res.end( responseBody )
         }
